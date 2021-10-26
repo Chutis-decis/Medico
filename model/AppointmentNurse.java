@@ -42,7 +42,7 @@ public class AppointmentNurse implements ISchedulable{
     }
 
     public String getTime() {
-        return time;
+        return time + "hrs";
     }
 
     public void setTime(String time) {
@@ -51,6 +51,7 @@ public class AppointmentNurse implements ISchedulable{
     
     @Override
     public void schedule(Date date, String time){
-        
+        this.date = date;
+        this.time = time;
     }
 }

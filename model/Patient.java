@@ -1,10 +1,39 @@
 package model;
+
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Patient  extends User{
     private String birthday;
     private double weight;
     private double height;
     private String blood;
+    
+    private ArrayList <AppointmentDoctor> appoinmentDoctors = new ArrayList<>();
+    private ArrayList <AppointmentDoctor> appoinmentNurse = new ArrayList<>();
+    
+    
+    
+    public ArrayList<AppointmentDoctor> getAppoinmentDoctors() {
+        return appoinmentDoctors;
+    }
 
+    public void aadAppoinmentDoctors(Doctor doctor, Date date, String time) {
+        AppointmentDoctor appoinmetDoctor = new AppointmentDoctor(this,doctor);
+        appoinmetDoctor.schedule(date, time);
+        appoinmentDoctors.add(appoinmetDoctor);
+    }
+
+    public ArrayList<AppointmentDoctor> getAppoinmentNurse() {
+        return appoinmentNurse;
+    }
+
+    public void setAppoinmentNurse(ArrayList<AppointmentDoctor> appoinmentNurse) {
+        this.appoinmentNurse = appoinmentNurse;
+    }
+    
+    
+    
     public Patient(String name, String email){
         super(name,email);
         //mas instrucciones
@@ -56,4 +85,10 @@ public class Patient  extends User{
         System.out.println("Historial completo desde naciemiento");
 
     }
+
+    public void addAppointmentDoctor(Doctor doctorSelect, String date, String time) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+  
 }
